@@ -28,6 +28,28 @@
   color: #61dafb;
 }
 
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.icon-button.edit {
+  color: blue;
+}
+
+.icon-button.delete {
+  color: red;
+}
+
+.icon-button:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
