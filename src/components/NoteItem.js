@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 function NoteItem(props) {
-  const { note } = props;
+  const { note, updateNoteData } = props;
   const context = useContext(NoteContext);
   const { deleteNote } = context;
 
@@ -16,14 +16,19 @@ function NoteItem(props) {
           <h6 className="card-text">{note.tag}</h6>
           <p className="card-text">{note.description}</p>
           <button
-            onClick={() => console.log("Edit clicked")}
+            onClick={() => {
+              updateNoteData(note);
+            }}
             className="icon-button edit"
             title="Edit"
           >
             <FontAwesomeIcon icon={faPen} />
           </button>
           <button
-            onClick={() => deleteNote(note._id)}
+            onClick={() => {
+              deleteNote(note._id);
+              props.showAlert("Note deleted successfully.", "success");
+            }}
             className="icon-button delete"
             title="Delete"
           >
